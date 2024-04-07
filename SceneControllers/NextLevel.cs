@@ -1,0 +1,29 @@
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class NextLevel : MonoBehaviour
+{
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Player"))
+        {
+            UnLockLevel();
+            LoadNextLevel();            
+        }
+    }
+    public void LoadNextLevel()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextSceneIndex = currentSceneIndex + 1;
+        SceneManager.LoadScene(nextSceneIndex);
+    }
+    public void UnLockLevel()
+    {
+        int currentLevel = SceneManager.GetActiveScene().buildIndex;
+
+        if (currentLevel >= PlayerPrefs.GetInt("levels"))
+        {
+            PlayerPrefs.SetInt("levels", currentLevel + 1);
+        }
+    }
+}
