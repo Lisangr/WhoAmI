@@ -4,14 +4,6 @@ using UnityEngine.SceneManagement;
 
 public class StartSceneOnChangeLevelScene : MonoBehaviour
 { 
-/*public TextMeshProUGUI buttonNameText;
-    public void StartScene()
-    {
-        string buttonName = buttonNameText.text;
-        int indexStartingScene = int.Parse(buttonName);
-
-        SceneManager.LoadScene(indexStartingScene, LoadSceneMode.Single);
-    }*/
     public void StartScene()
     {
         TextMeshProUGUI buttonNameText = GetComponentInChildren<TextMeshProUGUI>();
@@ -25,12 +17,12 @@ public class StartSceneOnChangeLevelScene : MonoBehaviour
             }
             else
             {
-                Debug.LogError("Невозможно преобразовать текст кнопки в целое число.");
+                Debug.LogError("Can't translate text to number");
             }
         }
         else
         {
-            Debug.LogError("Компонент TextMeshProUGUI не найден в дочерних объектах кнопки.");
+            Debug.LogError("TextMeshProUGUI not find on button");
         }
     }
 }
