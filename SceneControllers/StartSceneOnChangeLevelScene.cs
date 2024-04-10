@@ -13,7 +13,7 @@ public class StartSceneOnChangeLevelScene : MonoBehaviour
             int indexStartingScene;
             if (int.TryParse(buttonName, out indexStartingScene))
             {
-                SceneManager.LoadScene(indexStartingScene+2);
+                SceneManager.LoadScene(indexStartingScene);//+2
             }
             else
             {

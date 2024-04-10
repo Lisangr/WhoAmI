@@ -6,14 +6,17 @@ using UnityEngine.SceneManagement;
 public class AsinLoad : MonoBehaviour
 {
     public Slider slider;
-
+    public string Scene = "";
     void Start()
     {
-        StartCoroutine(LoadNextScene());
+        //StartCoroutine(LoadNextScene());
+        LoadNextScene();
     }
 
-    private IEnumerator LoadNextScene()
+    private void LoadNextScene() //IEnumerator
     {
+        SceneManager.LoadScene(Scene, LoadSceneMode.Single);
+        /*
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int nextSceneIndex = currentSceneIndex + 1;
         
@@ -24,6 +27,6 @@ public class AsinLoad : MonoBehaviour
             float progress = oper.progress / 0.9f;
             slider.value = progress;
             yield return null;
-        }
+        }*/
     }
 }
