@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CanvasRotate : MonoBehaviour
 {
-    public Canvas canvas;
+    public GameObject canvas;
 
     public delegate void MoveAction();
     public static event MoveAction OnMoveCount;

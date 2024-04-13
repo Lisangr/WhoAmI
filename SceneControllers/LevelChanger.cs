@@ -34,8 +34,8 @@ public class LevelChanger : MonoBehaviour
         {
             //int buttonIndex = i;//Mathf.Clamp(i - 1, 0, buttons.Length - 1);
 
-            if (PlayerPrefs.HasKey("stars" + i)) //или +2 потому что первая сцена имеет индекс 3, а i = 1
-            {                                      //таким образом мы начинаем со stars3 ключа, а не stars1
+            if (PlayerPrefs.HasKey("stars" + i)) 
+            {                                      
                 if (PlayerPrefs.GetInt("stars" + i) == 1) 
                 {
                     buttons[i - 1].transform.GetChild(0).GetComponent<Image>().sprite = star;

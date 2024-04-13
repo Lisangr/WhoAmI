@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class SomethingActivate : MonoBehaviour
 {
-    private Animator animator;
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Player"))
