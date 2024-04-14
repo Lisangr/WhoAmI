@@ -7,10 +7,8 @@ public class MoveCounter : MonoBehaviour
     public int moveCount = 0;
     public TextMeshProUGUI move_count;
     public int maxMove;
-    private void Awake()
-    {
-        CanvasRotate.OnMoveCount += IncrementMoveCount;
-    }
+    private void Awake() => CanvasRotate.OnMoveCount += IncrementMoveCount;
+    
     private void IncrementMoveCount()
     {
         moveCount += 1;
@@ -30,7 +28,5 @@ public class MoveCounter : MonoBehaviour
             && (!PlayerPrefs.HasKey("stars" + SceneManager.GetActiveScene().buildIndex)
             || (PlayerPrefs.GetInt("stars" + SceneManager.GetActiveScene().buildIndex) < 3)))
             PlayerPrefs.SetInt("stars" + SceneManager.GetActiveScene().buildIndex, 3);
-
-        Debug.Log(PlayerPrefs.GetInt("stars" + SceneManager.GetActiveScene().buildIndex));
     }
 }
