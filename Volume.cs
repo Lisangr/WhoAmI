@@ -9,6 +9,7 @@ public class Volume : MonoBehaviour
 
     void Start()
     {
+        //PlayerPrefs.DeleteAll();
         m_Volume = PlayerPrefs.HasKey("Volume") ? PlayerPrefs.GetFloat("Volume") : 1f;
         m_AudioSource.volume = m_Volume;
     }
@@ -23,6 +24,7 @@ public class Volume : MonoBehaviour
         }
         
         PlayerPrefs.SetFloat("Volume", m_Volume);
+        PlayerPrefs.Save();
     }
 
     public void SetVolume(float volume) => m_Volume = volume;

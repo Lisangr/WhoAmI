@@ -17,16 +17,16 @@ public class NextLevel : MonoBehaviour
             LoadNextLevel();            
         }
     }
-    public void LoadNextLevel()
+    /*public void LoadNextLevel()
     {
         SceneManager.LoadScene("ChangeLevel");
-    }    
-    /*public void LoadNextLevel()
+    }   */ 
+    public void LoadNextLevel()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int nextSceneIndex = currentSceneIndex + 1;
         SceneManager.LoadScene(nextSceneIndex);
-    }*/
+    }
     public void UnLockLevel()
     {
         int currentLevel = SceneManager.GetActiveScene().buildIndex;

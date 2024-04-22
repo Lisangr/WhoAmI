@@ -17,7 +17,7 @@ public class LevelChanger : MonoBehaviour
             buttons[i].interactable = false;
         }
 
-        for (int i = 0; i < levelUnLock-1; i++)
+        for (int i = 0; i < levelUnLock; i++)
         {
             buttons[i].interactable = true;
         }
@@ -29,39 +29,51 @@ public class LevelChanger : MonoBehaviour
             else
                 buttons[i].interactable = false;
         }*/
-
-        for (int i = 1; i < levelUnLock; i++)
-        {
-            //int buttonIndex = i;//Mathf.Clamp(i - 1, 0, buttons.Length - 1);
-
-            if (PlayerPrefs.HasKey("stars" + i)) 
-            {                                      
-                if (PlayerPrefs.GetInt("stars" + i) == 1) 
-                {
-                    buttons[i - 1].transform.GetChild(0).GetComponent<Image>().sprite = star;
-                    buttons[i - 1].transform.GetChild(1).GetComponent<Image>().sprite = noStar;
-                    buttons[i - 1].transform.GetChild(2).GetComponent<Image>().sprite = noStar;
-                }
-                else if (PlayerPrefs.GetInt("stars" +i) == 2)
-                {
-                    buttons[i - 1].transform.GetChild(0).GetComponent<Image>().sprite = star;
-                    buttons[i - 1].transform.GetChild(1).GetComponent<Image>().sprite = star;
-                    buttons[i - 1].transform.GetChild(2).GetComponent<Image>().sprite = noStar;
-                }
-                else if (PlayerPrefs.GetInt("stars" +i) == 3)
-                {
-                    buttons[i - 1].transform.GetChild(0).GetComponent<Image>().sprite = star;
-                    buttons[i - 1].transform.GetChild(1).GetComponent<Image>().sprite = star;
-                    buttons[i - 1].transform.GetChild(2).GetComponent<Image>().sprite = star;
-                }
-            }
-            else
+            for (int i = 1; i < levelUnLock; i++)
             {
+                //int buttonIndex = i;//Mathf.Clamp(i - 1, 0, buttons.Length - 1);
+
+                if (PlayerPrefs.HasKey("stars" + i))
+                {
+                    if (PlayerPrefs.GetInt("stars" + i) == 1)
+                    {
+                    buttons[i - 1].transform.GetChild(0).gameObject.SetActive(true);
+                    buttons[i - 1].transform.GetChild(0).GetComponent<Image>().sprite = star;
+                    buttons[i - 1].transform.GetChild(1).gameObject.SetActive(true);
+                    buttons[i - 1].transform.GetChild(1).GetComponent<Image>().sprite = noStar;
+                    buttons[i - 1].transform.GetChild(2).gameObject.SetActive(true);
+                    buttons[i - 1].transform.GetChild(2).GetComponent<Image>().sprite = noStar;
+                    }
+                    else if (PlayerPrefs.GetInt("stars" + i) == 2)
+                    {
+                    buttons[i - 1].transform.GetChild(0).gameObject.SetActive(true);
+                    buttons[i - 1].transform.GetChild(0).GetComponent<Image>().sprite = star;
+                    buttons[i - 1].transform.GetChild(1).gameObject.SetActive(true);
+                    buttons[i - 1].transform.GetChild(1).GetComponent<Image>().sprite = star;
+                    buttons[i - 1].transform.GetChild(2).gameObject.SetActive(true);
+                    buttons[i - 1].transform.GetChild(2).GetComponent<Image>().sprite = noStar;
+                    }
+                    else if (PlayerPrefs.GetInt("stars" + i) == 3)
+                    {
+                    buttons[i - 1].transform.GetChild(0).gameObject.SetActive(true);
+                    buttons[i - 1].transform.GetChild(0).GetComponent<Image>().sprite = star;
+                    buttons[i - 1].transform.GetChild(1).gameObject.SetActive(true);
+                    buttons[i - 1].transform.GetChild(1).GetComponent<Image>().sprite = star;
+                    buttons[i - 1].transform.GetChild(2).gameObject.SetActive(true);
+                    buttons[i - 1].transform.GetChild(2).GetComponent<Image>().sprite = star;
+                    }
+                }
+                else
+                {
+                buttons[i - 1].transform.GetChild(0).gameObject.SetActive(true);
                 buttons[i - 1].transform.GetChild(0).gameObject.SetActive(false);
+                buttons[i - 1].transform.GetChild(1).gameObject.SetActive(true);
                 buttons[i - 1].transform.GetChild(1).gameObject.SetActive(false);
+                buttons[i - 1].transform.GetChild(2).gameObject.SetActive(true);
                 buttons[i - 1].transform.GetChild(2).gameObject.SetActive(false);
+                }
             }
-        }
+
     }
 
     public void loadLevel(int levelIndex)
